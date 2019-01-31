@@ -3,6 +3,7 @@ import './App.css'
 import axios from 'axios'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import CurrentWeather from './CurrentWeather'
+import Home from './Home'
 
 class App extends Component {
   constructor(props) {
@@ -45,8 +46,8 @@ class App extends Component {
             </div>
           </nav>
 
-          <Route exact path="/" component={CurrentWeather} />
-          <Route />
+          <Route exact path="/" component={Home} />
+          <Route path="/:city" component={CurrentWeather} />
         </div>
       </Router>
     )

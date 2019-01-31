@@ -4,7 +4,6 @@ class CurrentWeather extends Component {
   render() {
     return (
       <main>
-        <h1>Don't Fear the Weather</h1>
         <div className="container">
           <form onSubmit={this.getCurrentWeather}>
             <p>Enter a city to get the current weather.</p>
