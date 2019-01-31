@@ -44,8 +44,12 @@ class App extends Component {
             </div>
             <div className="nav-right">
               {/* <a>Home</a> */}
-              <Link to="/current">Current Weather</Link>
-              <Link to="/5-day-forecast">5-Day Forecast</Link>
+              <Link to="/current" className="nav-item">
+                Current Weather
+              </Link>
+              <Link to="/5-day-forecast" className="nav-item">
+                5-Day Forecast
+              </Link>
             </div>
           </nav>
 
