@@ -32,26 +32,32 @@ class App extends Component {
     return (
       <div>
         <nav className="nav-bar">
-          <div className="nav-left" />
+          <div className="nav-left">
+            <p className="logo">Logo, Dude</p>
+          </div>
           <div className="nav-right">
             <a>Home</a>
             <a>Current Weather</a>
             <a>5-Day Forecast</a>
           </div>
         </nav>
-        <h1>Don't Fear the Weather</h1>
+        <main>
+          <h1>Don't Fear the Weather</h1>
 
-        <form onSubmit={this.getCurrentWeather}>
-          <p>Enter a city to get the current weather.</p>
-          <input
-            type="text"
-            placeholder="Please enter city name or zip code"
-            onChange={this.getUserInput}
-          />
-          <button type="submit" onSubmit={this.getCurrentWeather}>
-            Submit
-          </button>
-        </form>
+          <form onSubmit={this.getCurrentWeather}>
+            <p>Enter a city to get the current weather.</p>
+            <div className="current-weather">
+              <input
+                type="text"
+                placeholder="Please enter city name or zip code"
+                onChange={this.getUserInput}
+              />
+              <button type="submit" onSubmit={this.getCurrentWeather}>
+                Submit
+              </button>
+            </div>
+          </form>
+        </main>
       </div>
     )
   }
