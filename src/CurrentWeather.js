@@ -8,12 +8,8 @@ class CurrentWeather extends Component {
           <form onSubmit={this.getCurrentWeather}>
             <p>Enter a city to get the current weather.</p>
             <div className="current-weather">
-              <input
-                type="text"
-                placeholder="Please enter city name or zip code"
-                onChange={this.getUserInput}
-              />
-              <button type="submit" onSubmit={this.getCurrentWeather}>
+              <input type="text" placeholder="City name or zip code" onChange={this.getUserInput} />
+              <button type="submit" onSubmit={this.getCurrentWeather} className="search-button">
                 Submit
               </button>
             </div>
