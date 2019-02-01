@@ -1,6 +1,34 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 class CurrentWeather extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      userInput: ''
+    }
+  }
+
+  getUserInput = event => {
+    this.setState({
+      userInput: event.target.value
+    })
+  }
+
+  getCurrentWeather = event => {
+    event.preventDefault()
+    axios
+      .get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${
+          this.state.userInput
+        }&APPID=b2726d7825cf3b1588bfa9175ad211bf&units=imperial`
+      )
+      .then(response => {
+        console.log(response.data)
+      })
+  }
+
   render() {
     return (
       <main>
