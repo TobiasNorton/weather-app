@@ -39,7 +39,7 @@ class CurrentWeather extends Component {
     if (this.state.currentWeather) {
       console.log(this.state.currentWeather.name)
       let city = this.state.currentWeather
-      let iconCode = city.weather[0].icon
+      let iconCode = city.weather[0].id
       return (
         <div className="weather-container">
           <p>
@@ -59,8 +59,8 @@ class CurrentWeather extends Component {
               <p>Humidity: {city.main.humidity}%</p>
               <p>Wind: {city.wind.speed}mph</p>
             </div>
-            <i className={`owf owf-${city.cod}`} />
-            {/* <img src={`http://openweathermap.org/img/w/${iconCode}.png`} className="fit-icon" /> */}
+            {/* <i className={`owf owf-${803}`} /> */}
+            <img src={`http://openweathermap.org/img/w/${iconCode}.png`} className="fit-icon" />
           </section>
         </div>
       )
