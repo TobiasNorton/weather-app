@@ -39,6 +39,7 @@ class CurrentWeather extends Component {
     if (this.state.currentWeather) {
       console.log(this.state.currentWeather.name)
       let city = this.state.currentWeather
+      let iconCode = city.weather[0].icon
       return (
         <div className="weather-container">
           <p>
@@ -50,11 +51,16 @@ class CurrentWeather extends Component {
               ? `It's pretty hot in ${city.name} right now.`
               : ''}
           </p>
-          <p>Current temperature: {city.main.temp} °F</p>
-          <p>High: {city.main.temp_max} °F</p>
-          <p>Low: {city.main.temp_min} °F</p>
-          <p>Humidity: {city.main.humidity}%</p>
-          <p>Wind: {city.wind.speed}mph</p>
+          <section className="weather-info">
+            <div>
+              <p>Current temperature: {city.main.temp} °F</p>
+              <p>High: {city.main.temp_max} °F</p>
+              <p>Low: {city.main.temp_min} °F</p>
+              <p>Humidity: {city.main.humidity}%</p>
+              <p>Wind: {city.wind.speed}mph</p>
+            </div>
+            <img src={`http://openweathermap.org/img/w/${iconCode}.png`} className="fit-icon" />
+          </section>
         </div>
       )
     }

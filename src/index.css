@@ -96,6 +96,15 @@ h1 {
   margin-top: 0;
 }
 
+.weather-info {
+  display: flex;
+}
+
+img.fit-icon {
+  object-fit: contain;
+  width: 6rem;
+}
+
 form {
   display: flex;
   flex-direction: column;
