@@ -6,7 +6,8 @@ class CurrentWeather extends Component {
     super(props)
 
     this.state = {
-      userInput: ''
+      userInput: '',
+      currentWeather: undefined
     }
   }
 
@@ -25,8 +26,28 @@ class CurrentWeather extends Component {
         }&APPID=b2726d7825cf3b1588bfa9175ad211bf&units=imperial`
       )
       .then(response => {
-        console.log(response.data)
+        this.setState(
+          {
+            currentWeather: response.data
+          },
+          () => console.log(this.state.currentWeather)
+        )
       })
+  }
+
+  showCurrentWeather = () => {
+    if (this.state.currentWeather) {
+      console.log(this.state.currentWeather.name)
+      return (
+        <div className="container">
+          <p>
+            The weather in {this.state.currentWeather.name} is currently
+            {/* {this.state.currentWeather.weather[0].description}. */}
+          </p>
+          <p />
+        </div>
+      )
+    }
   }
 
   render() {
@@ -37,12 +58,13 @@ class CurrentWeather extends Component {
             <p>Enter a city to get the current weather.</p>
             <div className="current-weather">
               <input type="text" placeholder="City name or zip code" onChange={this.getUserInput} />
-              <button type="submit" onSubmit={this.getCurrentWeather} className="search-button">
+              <button type="submit" className="search-button">
                 Submit
               </button>
             </div>
           </form>
         </div>
+        {this.showCurrentWeather()}
       </main>
     )
   }
