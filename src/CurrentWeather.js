@@ -38,13 +38,23 @@ class CurrentWeather extends Component {
   showCurrentWeather = () => {
     if (this.state.currentWeather) {
       console.log(this.state.currentWeather.name)
+      let city = this.state.currentWeather
       return (
         <div className="container">
           <p>
-            The weather in {this.state.currentWeather.name} is currently
-            {/* {this.state.currentWeather.weather[0].description}. */}
+            {city.main.temp <= 40
+              ? `It's pretty cold in ${city.name} right now.`
+              : city.main.temp > 40 && city.main.temp <= 84
+              ? ``
+              : city.main.temp > 84
+              ? `It's pretty hot in ${city.name} right now.`
+              : ''}
           </p>
-          <p />
+          <p>Current temperature: {city.main.temp} °F</p>
+          <p>High: {city.main.temp_max} °F</p>
+          <p>Low: {city.main.temp_min} °F</p>
+          <p>Humidity: {city.main.humidity}%</p>
+          <p>Wind: {city.wind.speed}mph</p>
         </div>
       )
     }
