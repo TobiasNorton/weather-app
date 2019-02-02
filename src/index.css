@@ -20,7 +20,7 @@ code {
   justify-content: space-between;
   align-items: center;
   color: black;
-  background-color: hsla(182, 50%, 100%, 0.7);
+  background-color: hsla(182, 50%, 100%, 0.9);
 }
 
 .nav-left {
@@ -75,12 +75,24 @@ h1 {
 
 .container {
   padding: 2rem 3rem 2rem 3rem;
-  background-color: hsla(182, 50%, 100%, 0.7);
+  background-color: hsla(182, 50%, 100%, 0.9);
   border-radius: 10px;
   margin-top: 4rem;
 }
 
 .container p {
+  margin-top: 0;
+}
+
+.weather-container {
+  padding: 2rem 3rem 1rem 3rem;
+  background-color: hsla(182, 50%, 100%, 0.9);
+  border-radius: 10px;
+  margin-top: 2rem;
+  margin-bottom: 10rem;
+}
+
+.weather-container p {
   margin-top: 0;
 }
 

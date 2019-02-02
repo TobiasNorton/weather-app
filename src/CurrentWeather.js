@@ -40,7 +40,7 @@ class CurrentWeather extends Component {
       console.log(this.state.currentWeather.name)
       let city = this.state.currentWeather
       return (
-        <div className="container">
+        <div className="weather-container">
           <p>
             {city.main.temp <= 40
               ? `It's pretty cold in ${city.name} right now.`
