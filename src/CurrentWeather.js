@@ -59,7 +59,8 @@ class CurrentWeather extends Component {
               <p>Humidity: {city.main.humidity}%</p>
               <p>Wind: {city.wind.speed}mph</p>
             </div>
-            <img src={`http://openweathermap.org/img/w/${iconCode}.png`} className="fit-icon" />
+            <i className={`owf owf-${city.cod}`} />
+            {/* <img src={`http://openweathermap.org/img/w/${iconCode}.png`} className="fit-icon" /> */}
           </section>
         </div>
       )
