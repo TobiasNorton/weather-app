@@ -37,19 +37,24 @@ class Forecast extends Component {
       console.log(this.state.forecast)
       return (
         // Why is it displaying a different date than the time stamp website?
-        <div>
+        <div className="container">
           {this.state.forecast.list.map((listItem, index) => {
             return (
-              <p key={index}>
-                {new Date(listItem.dt * 1000).toLocaleDateString([], {
-                  weekday: 'long',
-                  month: 'long',
-                  day: 'numeric',
-                  year: 'numeric',
-                  hour: 'numeric',
-                  minute: 'numeric'
-                })}
-              </p>
+              <>
+                <p key={index}>
+                  {new Date(listItem.dt * 1000).toLocaleDateString([], {
+                    weekday: 'long',
+                    month: 'long',
+                    day: 'numeric',
+                    year: 'numeric',
+                    hour: 'numeric',
+                    minute: 'numeric'
+                  })}
+                </p>
+                <p>Temperature: {listItem.main.temp} °F</p>
+                <p>Humidity: {listItem.main.humidity}%</p>
+                <p>Wind: {listItem.wind.speed}mph</p>
+              </>
             )
           })}
         </div>
