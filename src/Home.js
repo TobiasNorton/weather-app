@@ -5,7 +5,7 @@ class Home extends Component {
   render() {
     return (
       <main>
-        <h1>Welcome to WeatherStuff</h1>
+        <h1>Welcome to WeatherNStuff</h1>
         <div className="home-prompt">
           <p>Let's get the weather. Would you like the current weather or a 5-day forecast?</p>
           <div>

@@ -13,7 +13,7 @@ class App extends Component {
           <nav className="nav-bar">
             <div className="nav-left">
               <Link to="/" className="logo">
-                Logo, Dude
+                WeatherNStuff
               </Link>
             </div>
             <div className="nav-right">

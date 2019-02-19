@@ -20,7 +20,7 @@ code {
   justify-content: space-between;
   align-items: center;
   color: black;
-  background-color: hsla(182, 50%, 100%, 0.9);
+  background-color: hsla(182, 50%, 100%, 0.6);
 }
 
 .nav-left {
@@ -84,12 +84,18 @@ h1 {
   margin-top: 0;
 }
 
+.overflow-prevent {
+  height: 60rem;
+}
+
 .weather-container {
   padding: 2rem 3rem 1rem 3rem;
   background-color: hsla(182, 50%, 100%, 0.9);
   border-radius: 10px;
   margin-top: 2rem;
   margin-bottom: 10rem;
+  overflow: scroll;
+  max-height: 30rem;
 }
 
 .weather-container p {
@@ -126,4 +132,8 @@ form {
   width: 8rem;
   height: 1.8rem;
   border: 1px solid hsl(182, 0%, 80%);
+}
+
+.date {
+  font-weight: bold;
 }

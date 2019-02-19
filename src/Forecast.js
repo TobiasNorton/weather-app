@@ -19,6 +19,20 @@ class Forecast extends Component {
 
   getForecast = event => {
     event.preventDefault()
+    if (this.state.userInput.length === 5 && typeof parseInt(this.state.userInput) === 'number') {
+      axios
+        .get(
+          `api.openweathermap.org/data/2.5/weather?zip=${
+            this.state.userInput
+          }&APPID=b2726d7825cf3b1588bfa9175ad211bf&units=imperial`
+        )
+        .then(response => {
+          this.setState({
+            forecast: response.data
+          })
+        })
+    }
+    //
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/forecast?q=${
@@ -37,11 +51,13 @@ class Forecast extends Component {
       console.log(this.state.forecast)
       return (
         // Why is it displaying a different date than the time stamp website?
-        <div className="container">
+        // <div className="overflow-prevent">
+        <div className="weather-container">
+          <p>Scroll down for the weather in 3-hour intervals. This is your only option.</p>
           {this.state.forecast.list.map((listItem, index) => {
             return (
               <>
-                <p key={index}>
+                <p key={index} className="date">
                   {new Date(listItem.dt * 1000).toLocaleDateString([], {
                     weekday: 'long',
                     month: 'long',
@@ -58,6 +74,7 @@ class Forecast extends Component {
             )
           })}
         </div>
+        // </div>
       )
     }
   }
