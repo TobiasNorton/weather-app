@@ -19,20 +19,39 @@ class CurrentWeather extends Component {
 
   getCurrentWeather = event => {
     event.preventDefault()
-    axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${
-          this.state.userInput
-        }&APPID=b2726d7825cf3b1588bfa9175ad211bf&units=imperial`
-      )
-      .then(response => {
-        this.setState(
-          {
-            currentWeather: response.data
-          },
-          () => console.log(this.state.currentWeather)
+    console.log(this.state.userInput)
+    if (this.state.userInput.length === 5 && typeof parseInt(this.state.userInput) === 'number') {
+      axios
+        .get(
+          `https://api.openweathermap.org/data/2.5/weather?zip=${
+            this.state.userInput
+          }&APPID=b2726d7825cf3b1588bfa9175ad211bf&units=imperial`
         )
-      })
+        .then(response => {
+          console.log(response.data)
+          this.setState(
+            {
+              currentWeather: response.data
+            },
+            () => console.log(this.state.currentWeather)
+          )
+        })
+    } else {
+      axios
+        .get(
+          `https://api.openweathermap.org/data/2.5/weather?q=${
+            this.state.userInput
+          }&APPID=b2726d7825cf3b1588bfa9175ad211bf&units=imperial`
+        )
+        .then(response => {
+          this.setState(
+            {
+              currentWeather: response.data
+            },
+            () => console.log(this.state.currentWeather)
+          )
+        })
+    }
   }
 
   showCurrentWeather = () => {

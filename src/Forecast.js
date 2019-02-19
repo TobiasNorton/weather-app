@@ -22,7 +22,19 @@ class Forecast extends Component {
     if (this.state.userInput.length === 5 && typeof parseInt(this.state.userInput) === 'number') {
       axios
         .get(
-          `api.openweathermap.org/data/2.5/weather?zip=${
+          `https://api.openweathermap.org/data/2.5/forecast?zip=${
+            this.state.userInput
+          }&APPID=b2726d7825cf3b1588bfa9175ad211bf&units=imperial`
+        )
+        .then(response => {
+          this.setState({
+            forecast: response.data
+          })
+        })
+    } else {
+      axios
+        .get(
+          `https://api.openweathermap.org/data/2.5/forecast?q=${
             this.state.userInput
           }&APPID=b2726d7825cf3b1588bfa9175ad211bf&units=imperial`
         )
@@ -32,18 +44,6 @@ class Forecast extends Component {
           })
         })
     }
-    //
-    axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${
-          this.state.userInput
-        }&APPID=b2726d7825cf3b1588bfa9175ad211bf&units=imperial`
-      )
-      .then(response => {
-        this.setState({
-          forecast: response.data
-        })
-      })
   }
 
   showForecast = () => {
@@ -56,8 +56,8 @@ class Forecast extends Component {
           <p>Scroll down for the weather in 3-hour intervals. This is your only option.</p>
           {this.state.forecast.list.map((listItem, index) => {
             return (
-              <>
-                <p key={index} className="date">
+              <div key={index}>
+                <p className="date">
                   {new Date(listItem.dt * 1000).toLocaleDateString([], {
                     weekday: 'long',
                     month: 'long',
@@ -70,7 +70,7 @@ class Forecast extends Component {
                 <p>Temperature: {listItem.main.temp} °F</p>
                 <p>Humidity: {listItem.main.humidity}%</p>
                 <p>Wind: {listItem.wind.speed}mph</p>
-              </>
+              </div>
             )
           })}
         </div>
